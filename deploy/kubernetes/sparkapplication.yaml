@@ -1,0 +1,20 @@
+# Requires the Kubernetes Spark Operator CRDs and an image containing Spark + application code.
+apiVersion: sparkoperator.k8s.io/v1beta2
+kind: SparkApplication
+metadata:
+  name: risk-feature-engineering
+spec:
+  type: Python
+  mode: cluster
+  image: REPLACE_WITH_YOUR_REGISTRY/spark-risk-jobs:0.1.0
+  mainApplicationFile: local:///opt/spark/app/risk_platform/spark_jobs.py
+  sparkVersion: '3.5.1'
+  restartPolicy: {type: Never}
+  driver:
+    cores: 1
+    memory: 1g
+    serviceAccount: spark
+  executor:
+    instances: 2
+    cores: 1
+    memory: 2g
