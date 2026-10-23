@@ -20,6 +20,10 @@ def render():
     st.caption('Interactive, source-cited Q&A over synthetic financial policy documents. Educational demo only.')
     st.warning('Upload only public or synthetic content. Uploaded text may be sent to the OpenAI API when AI mode is enabled. Never upload real customer records or confidential policies.')
     source_files = sorted(SAMPLE.glob('*.md'))
+    # Include a repository-grounded overview so project-level questions can be answered.
+    project_overview = BASE / 'PROJECT_OVERVIEW.md'
+    if project_overview.is_file():
+        source_files = [project_overview] + source_files
     chosen = st.multiselect('Sample knowledge base', [p.name for p in source_files], default=[p.name for p in source_files])
     uploaded = st.file_uploader('Optional additional document (TXT, MD, text-based PDF; max 2 MB, PDF 30 pages)', type=['txt','md','pdf'], accept_multiple_files=True)
     passages = []
@@ -36,7 +40,8 @@ def render():
         st.error(err)
     key = _key()
     st.info('AI answer generation enabled using OpenAI Responses API.' if key else 'Retrieval-only demo mode. Add OPENAI_API_KEY to Streamlit secrets to enable AI-generated answers.')
-    q = st.text_input('Ask a financial policy question', placeholder='What triggers a credit risk escalation?')
+    q = st.text_input('Ask about the project or financial policies', placeholder='What is this complete project?')
+    st.caption('Try: What is this complete project? · How does the RAG assistant work? · What triggers credit risk escalation?')
     if st.button('Search documents & answer', type='primary', disabled=not q.strip() or not passages):
         evidence = retrieve(q, passages)
         try:
