@@ -1,0 +1,8 @@
+-r requirements.txt
+pyspark>=3.5
+mlflow>=2.15
+shap>=0.44
+xgboost>=2
+streamlit>=1.35
+feast>=0.40
+prometheus-client>=0.19
