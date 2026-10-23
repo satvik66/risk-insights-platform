@@ -1,0 +1,1 @@
+Model Governance: Monitor drift, calibration and false positive rates. Review demographic fairness with properly authorized data. Do not use the LLM to authorize a credit or fraud decision.

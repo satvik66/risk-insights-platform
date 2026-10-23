@@ -1,0 +1,7 @@
+{
+  "credit_auc": 0.6685008074395812,
+  "credit_ks": 0.27350623677469654,
+  "fraud_auc": 0.6490468568102444,
+  "drift_review_required": false,
+  "narrative": "Synthetic portfolio: credit holdout AUC 0.669, KS 0.274; fraud evaluation AUC 0.649. Drift review not flagged against illustrative thresholds. These metrics do not establish production model quality."
+}

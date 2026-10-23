@@ -1,0 +1,7 @@
+{
+  "roc_auc": 0.6490468568102444,
+  "average_precision": 0.11724569565309485,
+  "cost_optimal_threshold": 0.7,
+  "illustrative_cost_units": 13436.0,
+  "fraud_rate": 0.018571428571428572
+}

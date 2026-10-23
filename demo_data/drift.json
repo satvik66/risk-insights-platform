@@ -1,0 +1,12 @@
+{
+  "feature_psi": {
+    "income": 0.007735480276675236,
+    "utilization": 0.0044682013680245585,
+    "delinquency_count": 0.00034454610321857306,
+    "debt_to_income": 0.008051297932260362,
+    "loan_amount": 0.009080496738971744
+  },
+  "review_required": false,
+  "threshold": 0.2,
+  "note": "Threshold is illustrative and must be governed before production use."
+}

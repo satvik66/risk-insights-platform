@@ -1,0 +1,1 @@
+Fraud Operations Procedure: Prioritize unusual transaction amounts, changes in devices and high transaction velocity. A model score is an alert, not proof of wrongdoing. Analysts must review alerts before action.

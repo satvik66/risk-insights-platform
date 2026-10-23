@@ -1,0 +1,1 @@
+Loan Risk Policy: Review auto-loan portfolios monthly. Escalate delinquency concentration above approved thresholds. Credit risk decisions must have reason codes, an audit trail and human oversight.
