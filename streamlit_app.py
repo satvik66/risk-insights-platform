@@ -38,7 +38,7 @@ st.caption("Independent portfolio prototype • Entirely synthetic financial dat
 def read_data():
     return tuple(json.loads(read_demo_text(n)) for n in ["credit_metrics.json", "fraud_metrics.json", "drift.json", "risk_summary.json"])
 credit,fraud,drift,summary=read_data()
-t1,t2,t3,t4,t5=st.tabs(["Executive overview","Credit risk","Fraud detection","Model monitoring","AI & architecture"])
+t1,t2,t3,t4,t5,t6=st.tabs(["Executive overview","Credit risk","Fraud detection","Model monitoring","AI & architecture","Financial RAG Assistant"])
 with t1:
  st.markdown("### End-to-end engineering demonstration")
  st.write("A reproducible portfolio combining synthetic financial data, feature preparation, risk modeling, fraud alerts, drift monitoring, a model-serving API, and controlled knowledge retrieval.")
@@ -88,3 +88,7 @@ with t5:
 """)
 st.divider()
 st.caption("Portfolio demonstration of backend development, data engineering, applied machine learning, and production-minded architecture.")
+
+with t6:
+ from risk_platform.rag_ui import render
+ render()
