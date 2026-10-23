@@ -22,3 +22,8 @@ All financial records and example policies are synthetic. ML evaluation numbers 
 
 ## Intended audience and value
 A hiring manager can review the code and working dashboard to evaluate the developer's understanding of data pipelines, risk analytics, API design, information retrieval, LLM grounding and system deployment patterns. The strongest takeaway is end-to-end engineering breadth, not the predictive accuracy of the synthetic models.
+
+## My implementation narrative and enterprise AI vision
+I built this project to bridge software and data engineering with applied AI: reproducible synthetic financial datasets and feature pipelines feed credit and fraud scoring experiments, validation and drift metrics; these results appear in a Streamlit dashboard alongside a financial-document RAG assistant using local BM25-style retrieval and optional OpenAI Responses API grounded answers. The Advanced ML Lab supports temporal credit validation, portfolio risk-change sensitivity analysis, and BM25/LSA/hybrid retrieval comparisons.
+
+My proposed enterprise direction is evidence-grounded risk and financial-planning copilots, governed policy search, and data operations assistants. Production adoption would require identity and authorization controls, vetted internal data sources, privacy and prompt-injection protection, evaluations, monitoring, and human approval. The repository does not claim that these future integrations are already deployed.
