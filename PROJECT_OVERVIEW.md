@@ -1,4 +1,4 @@
-# Risk Insights Platform — Project Overview
+# Risk Insights Platform : Project Overview
 
 ## What is this complete project?
 Risk Insights Platform is an independent educational AI, machine-learning, and financial data engineering portfolio. It demonstrates how synthetic loan and transaction records can be processed into analytical features, used to evaluate credit and transaction risk models, monitored for distribution drift, and explored through an interactive Streamlit dashboard and a financial policy RAG assistant. It is not a production bank product and is not affiliated with Wells Fargo.
