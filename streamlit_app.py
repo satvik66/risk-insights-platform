@@ -40,7 +40,7 @@ def read_data():
 credit,fraud,drift,summary=read_data()
 t1,t2,t3,t4,t5,t6,t7=st.tabs(["Executive overview","Credit risk","Fraud detection","Model monitoring","AI & architecture","Financial RAG Assistant","Advanced ML Lab"])
 with t1:
- st.markdown("## What I built — and why")
+ st.markdown("## What I built : and why")
  st.markdown("""
  **I built Risk Insights Platform 2.0 to demonstrate how I can take a financial-data problem beyond ETL and backend APIs into applied machine learning, evidence-grounded generative AI, and an interactive decision-support experience.**
 
@@ -56,7 +56,7 @@ with t1:
 
  st.markdown("### What I personally implemented")
  st.markdown("""
- **1. Financial ML workflows — turning raw events into risk signals.** I developed reproducible synthetic loan and transaction pipelines, engineered credit and fraud features, trained and evaluated classification and anomaly-detection models, and surfaced scored transactions. I added customer clustering, feature drift monitoring with PSI, and evaluation metrics such as ROC-AUC, KS and average precision.
+ **1. Financial ML workflows : turning raw events into risk signals.** I developed reproducible synthetic loan and transaction pipelines, engineered credit and fraud features, trained and evaluated classification and anomaly-detection models, and surfaced scored transactions. I added customer clustering, feature drift monitoring with PSI, and evaluation metrics such as ROC-AUC, KS and average precision.
 
  **2. Stronger validation and explainability experiments.** In the Advanced ML Lab I incorporated a time-ordered credit-model evaluation (train, validation, out-of-time test), permutation feature importance, and a portfolio risk-change capstone. The capstone compares monthly predicted risk, estimates which input distributions contributed to the change, and retrieves relevant policy text. These are exploratory sensitivity analyses, not causal explanations.
 
@@ -71,7 +71,7 @@ with t1:
 
  st.markdown("### My vision: practical AI inside enterprise engineering")
  st.markdown("""
- **I see AI as an additional engineering layer on top of trustworthy data systems—not a replacement for data quality, backend reliability or human judgment.** For a financial-services organization, the patterns demonstrated here could evolve into:
+ **I see AI as an additional engineering layer on top of trustworthy data systems:not a replacement for data quality, backend reliability or human judgment.** For a financial-services organization, the patterns demonstrated here could evolve into:
  - **Risk investigation copilots** that combine model signals, historical data and approved policies to give analysts an evidence-linked starting point.
  - **Finance and planning assistants** that explain changes in forecasts, portfolio exposures and business-unit KPIs while tracing numbers back to governed data.
  - **Data engineering operations copilots** that investigate pipeline failures, schema drift and quality alerts using approved logs, lineage and runbooks.
@@ -120,7 +120,7 @@ with t5:
 
 **Deployment examples:** Docker, CI workflow, Kubernetes/OpenShift manifests, and distributed Spark job.
 
-**Potential extensions — not claimed as deployed:** hosted model inference, embeddings/vector database, production LLM RAG, SHAP reports, managed MLflow registry, and bank-grade approvals and security.
+**Potential extensions : not claimed as deployed:** hosted model inference, embeddings/vector database, production LLM RAG, SHAP reports, managed MLflow registry, and bank-grade approvals and security.
 
 **Guardrails:** only synthetic records; no real customer data; no arbitrary generated SQL; no autonomous credit decisions.
 """)
