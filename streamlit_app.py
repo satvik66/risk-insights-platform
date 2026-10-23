@@ -56,22 +56,34 @@ with t1:
 
  st.markdown("### What I personally implemented")
  st.markdown("""
- **1. Financial ML workflows : turning raw events into risk signals.** I developed reproducible synthetic loan and transaction pipelines, engineered credit and fraud features, trained and evaluated classification and anomaly-detection models, and surfaced scored transactions. I added customer clustering, feature drift monitoring with PSI, and evaluation metrics such as ROC-AUC, KS and average precision.
+ **1. Data engineering foundation: preparing reliable, usable financial data.** I built reproducible Python workflows that generate synthetic loan and transaction records, clean and transform financial attributes, and produce feature datasets and saved analytical artifacts for scoring and reporting. The repository includes point-in-time feature engineering and checks for missing values, unique keys and future-data leakage, plus an optional PySpark transformation example. These workflows run locally; they are not presented as a deployed distributed production pipeline.
 
- **2. Stronger validation and explainability experiments.** In the Advanced ML Lab I incorporated a time-ordered credit-model evaluation (train, validation, out-of-time test), permutation feature importance, and a portfolio risk-change capstone. The capstone compares monthly predicted risk, estimates which input distributions contributed to the change, and retrieves relevant policy text. These are exploratory sensitivity analyses, not causal explanations.
+ **2. Applied machine learning: converting engineered features into risk signals.** I trained and evaluated credit default and fraud detection models, ranked synthetic transaction alerts, and implemented customer clustering and drift monitoring. I measured ROC-AUC, KS, average precision and feature population stability (PSI) to go beyond training a model and consider its ongoing reliability.
 
- **3. A working financial document RAG assistant.** I implemented document ingestion for Markdown, TXT and text-based PDFs, chunking, local BM25-style retrieval, source excerpts and citation labels. When an OpenAI API key is configured, the backend uses the **OpenAI Responses API** to generate answers constrained to retrieved evidence. Missing evidence results in a refusal to invent a policy answer.
+ **3. Stronger validation and explainability experiments.** In the Advanced ML Lab I incorporated a time-ordered credit-model evaluation (train, validation, out-of-time test), permutation feature importance, and a portfolio risk-change capstone. The capstone compares monthly predicted risk, estimates which input distributions contributed to the change, and retrieves relevant policy text. These are exploratory sensitivity analyses, not causal explanations.
 
- **4. AI search and analytics prototypes.** I added experiments comparing BM25 against TF-IDF/LSA similarity and Reciprocal Rank Fusion, along with restricted natural-language-to-SQL, verifiable metric summaries and a rule-based tool router with an approval gate. These demonstrate the components behind an enterprise assistant; I do **not** present them as a fully autonomous production agent.
+ **4. A working financial document RAG assistant.** I implemented document ingestion for Markdown, TXT and text-based PDFs, chunking, local BM25-style retrieval, source excerpts and citation labels. When an OpenAI API key is configured, the backend uses the **OpenAI Responses API** to generate answers constrained to retrieved evidence. Missing evidence results in a refusal to invent a policy answer.
 
- **5. Application and delivery engineering.** I brought the results together in this Streamlit application, implemented a separate FastAPI prediction-service example, wrote automated tests, and included GitHub Actions, Docker and Kubernetes/OpenShift deployment examples. Cloud-hosted model serving, enterprise identity controls and managed model registries remain future steps.
+ **5. AI search and analytics prototypes.** I added experiments comparing BM25 against TF-IDF/LSA similarity and Reciprocal Rank Fusion, along with restricted natural-language-to-SQL, verifiable metric summaries and a rule-based tool router with an approval gate. These demonstrate the components behind an enterprise assistant; I do **not** present them as a fully autonomous production agent.
+
+ **6. Software engineering and delivery.** I brought the results together in this Streamlit application, implemented a separate FastAPI prediction-service example, wrote automated tests, and included GitHub Actions, Docker and Kubernetes/OpenShift deployment examples. Cloud-hosted model serving, enterprise identity controls and managed model registries remain future steps.
+ """)
+ st.markdown("### Data engineering architecture and handoff to AI")
+ st.markdown("""
+ **Ingestion and preparation:** generate and ingest reproducible synthetic financial records, validate input fields and prepare tabular loan and transaction datasets.
+
+ **Transformation and feature engineering:** derive risk features such as utilization, delinquency, debt-to-income ratios and transaction activity. The Advanced ML Lab includes point-in-time window calculations and explicit tests that avoid looking into future events.
+
+ **Outputs and consumers:** write feature tables, scoring results, metrics and audit-friendly artifacts. These feed credit and fraud models, portfolio risk summaries and the Streamlit dashboard. A separate document-ingestion path chunks policy files for RAG retrieval.
+
+ **Orchestration and scale path:** the core demo is Python/pandas and local batch execution, with an optional PySpark job and sample container/cluster manifests. Production scheduling, incremental ingestion, schema contracts, monitoring, IAM and enterprise lineage are next-step integrations, not already deployed features.
  """)
  st.markdown("### How the components connect")
  st.code("Synthetic financial records\n  → feature preparation and quality checks\n  → credit/fraud ML scoring + customer segments\n  → metrics, drift monitoring and portfolio risk analysis\n  → Streamlit dashboard + FastAPI example\n  → document retrieval → OpenAI grounded answer + citations",language="text")
 
  st.markdown("### My vision: practical AI inside enterprise engineering")
  st.markdown("""
- **I see AI as an additional engineering layer on top of trustworthy data systems:not a replacement for data quality, backend reliability or human judgment.** For a financial-services organization, the patterns demonstrated here could evolve into:
+ **I see AI as an additional engineering layer on top of trustworthy data systems, not a replacement for data quality, backend reliability or human judgment.** For a financial-services organization, the patterns demonstrated here could evolve into:
  - **Risk investigation copilots** that combine model signals, historical data and approved policies to give analysts an evidence-linked starting point.
  - **Finance and planning assistants** that explain changes in forecasts, portfolio exposures and business-unit KPIs while tracing numbers back to governed data.
  - **Data engineering operations copilots** that investigate pipeline failures, schema drift and quality alerts using approved logs, lineage and runbooks.
