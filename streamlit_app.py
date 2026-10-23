@@ -40,15 +40,53 @@ def read_data():
 credit,fraud,drift,summary=read_data()
 t1,t2,t3,t4,t5,t6,t7=st.tabs(["Executive overview","Credit risk","Fraud detection","Model monitoring","AI & architecture","Financial RAG Assistant","Advanced ML Lab"])
 with t1:
- st.markdown("### End-to-end engineering demonstration")
- st.write("A reproducible portfolio combining synthetic financial data, feature preparation, risk modeling, fraud alerts, drift monitoring, a model-serving API, and controlled knowledge retrieval.")
+ st.markdown("## What I built — and why")
+ st.markdown("""
+ **I built Risk Insights Platform 2.0 to demonstrate how I can take a financial-data problem beyond ETL and backend APIs into applied machine learning, evidence-grounded generative AI, and an interactive decision-support experience.**
+
+ My goal is not to show an LLM calling an API in isolation. I wanted to connect the complete engineering chain: **reliable data → analytical features → model predictions → monitoring and explanations → policy-aware AI answers → an application people can use**.
+
+ The application is an **independent portfolio prototype built with synthetic financial data**. It demonstrates implementation patterns, not production-ready credit or fraud decisioning.
+ """)
  c1,c2,c3=st.columns(3)
  c1.metric("Credit ROC AUC", f"{credit['auc']:.3f}")
  c2.metric("Fraud ROC AUC", f"{fraud['roc_auc']:.3f}")
  c3.metric("Data source", "Synthetic")
- st.markdown("### Data flow")
- st.code("Synthetic source data → Feature processing → ML training & scoring → Risk monitoring\n                                               ↓\n                               API + policy retrieval", language="text")
- st.info("Illustrative model results on generated data. These metrics do not demonstrate suitability for real-world lending or fraud decisions.")
+ st.caption("Illustrative holdout results from synthetic data. Scores do not establish real-world model quality.")
+
+ st.markdown("### What I personally implemented")
+ st.markdown("""
+ **1. Financial ML workflows — turning raw events into risk signals.** I developed reproducible synthetic loan and transaction pipelines, engineered credit and fraud features, trained and evaluated classification and anomaly-detection models, and surfaced scored transactions. I added customer clustering, feature drift monitoring with PSI, and evaluation metrics such as ROC-AUC, KS and average precision.
+
+ **2. Stronger validation and explainability experiments.** In the Advanced ML Lab I incorporated a time-ordered credit-model evaluation (train, validation, out-of-time test), permutation feature importance, and a portfolio risk-change capstone. The capstone compares monthly predicted risk, estimates which input distributions contributed to the change, and retrieves relevant policy text. These are exploratory sensitivity analyses, not causal explanations.
+
+ **3. A working financial document RAG assistant.** I implemented document ingestion for Markdown, TXT and text-based PDFs, chunking, local BM25-style retrieval, source excerpts and citation labels. When an OpenAI API key is configured, the backend uses the **OpenAI Responses API** to generate answers constrained to retrieved evidence. Missing evidence results in a refusal to invent a policy answer.
+
+ **4. AI search and analytics prototypes.** I added experiments comparing BM25 against TF-IDF/LSA similarity and Reciprocal Rank Fusion, along with restricted natural-language-to-SQL, verifiable metric summaries and a rule-based tool router with an approval gate. These demonstrate the components behind an enterprise assistant; I do **not** present them as a fully autonomous production agent.
+
+ **5. Application and delivery engineering.** I brought the results together in this Streamlit application, implemented a separate FastAPI prediction-service example, wrote automated tests, and included GitHub Actions, Docker and Kubernetes/OpenShift deployment examples. Cloud-hosted model serving, enterprise identity controls and managed model registries remain future steps.
+ """)
+ st.markdown("### How the components connect")
+ st.code("Synthetic financial records\n  → feature preparation and quality checks\n  → credit/fraud ML scoring + customer segments\n  → metrics, drift monitoring and portfolio risk analysis\n  → Streamlit dashboard + FastAPI example\n  → document retrieval → OpenAI grounded answer + citations",language="text")
+
+ st.markdown("### My vision: practical AI inside enterprise engineering")
+ st.markdown("""
+ **I see AI as an additional engineering layer on top of trustworthy data systems—not a replacement for data quality, backend reliability or human judgment.** For a financial-services organization, the patterns demonstrated here could evolve into:
+ - **Risk investigation copilots** that combine model signals, historical data and approved policies to give analysts an evidence-linked starting point.
+ - **Finance and planning assistants** that explain changes in forecasts, portfolio exposures and business-unit KPIs while tracing numbers back to governed data.
+ - **Data engineering operations copilots** that investigate pipeline failures, schema drift and quality alerts using approved logs, lineage and runbooks.
+ - **Policy and audit assistants** that search controlled documentation and draft traceable summaries for human review.
+
+ **How I would take this toward production:** integrate approved internal sources, enforce role-based access and PII controls, add semantic/hybrid search and retrieval evaluations, instrument cost/latency/quality monitoring, perform security and prompt-injection testing, and require human approval for consequential actions.
+ """)
+ st.markdown("### Explore the working demonstration")
+ st.markdown("""
+ - **Credit risk / Fraud detection / Model monitoring:** inspect actual synthetic model artifacts and scored records.
+ - **Financial RAG Assistant:** ask a finance-policy or project question and inspect source-grounded evidence.
+ - **Advanced ML Lab:** run temporal credit evaluation, portfolio risk-change analysis and search benchmarks.
+ - **GitHub source:** [Review the repository and implementation](https://github.com/satvik66/risk-insights-platform).
+ """)
+ st.info("Scope: portfolio proof-of-concept using synthetic data. The hosted dashboard, source-cited OpenAI RAG integration and on-demand experiments are distinct from proposed enterprise integrations, which have not been deployed.")
 with t2:
  st.markdown("### Credit default prediction")
  a,b,c=st.columns(3)
